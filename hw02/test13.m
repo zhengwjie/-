@@ -1,0 +1,17 @@
+clc;
+clear;
+t1=im2double(imread('gaussian.png'));
+subplot(2,3,1);imshow(t1);title('高斯噪声图片');
+t2=im2double(imread('salt&pepper.png'));
+subplot(2,3,2);imshow(t2);title('椒盐噪声图片');
+t3=im2double(imread('uniform.png'));
+subplot(2,3,3);imshow(t3);title('均匀噪声图片');
+t1=adp_median(t1,7);
+subplot(2,3,4);imshow(t1);title('自适应均值滤波');
+imwrite(t1,'self-adapt-average-gaussian.png');
+t2=adp_median(t2,7);
+subplot(2,3,5);imshow(t2);title('自适应均值滤波');
+imwrite(t2,'self-adapt-average-salt&pepper.png');
+t3=adp_median(t3,7);
+subplot(2,3,6);imshow(t3);title('自适应均值滤波');
+imwrite(t3,'self-adapt-average-uniform.png');

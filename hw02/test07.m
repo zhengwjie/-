@@ -1,0 +1,12 @@
+t1=imread('gaussian.png');
+subplot(2,3,1);imshow(t1);title('高斯噪声图片');
+t2=imread('salt&pepper.png');
+subplot(2,3,2);imshow(t2);title('椒盐噪声图片');
+t3=imread('uniform.png');
+subplot(2,3,3);imshow(t3);title('均匀噪声图片');
+t1=ordfilt2(t1,1,ones(3,3));imwrite(t1,'min-gaussian.png');
+subplot(2,3,4);imshow(t1);title('最小值滤波去噪');
+t2=ordfilt2(t2,1,ones(3,3));imwrite(t2,'min-salt&pepper.png');
+subplot(2,3,5);imshow(t2);title('最小值滤波去噪');
+t3=ordfilt2(t3,1,ones(3,3));imwrite(t3,'min-uniform.png');
+subplot(2,3,6);imshow(t3);title('最小值滤波去噪');
